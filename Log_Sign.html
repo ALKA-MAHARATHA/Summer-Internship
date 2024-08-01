@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Page</title>
+    <link rel="stylesheet" href="LoginSignup.css">
+</head>
+<body>
+    <body background color="blue"></body>
+    <div class="container">
+        <div class="header">
+            <div class="text">Sign Up</div>
+            <div class="underline"></div>
+        </div>
+        <div class="inputs">
+            <div class="input">
+                <input type="text" placeholder="Name" />
+            </div>
+            <div class="input">
+                <input type="email" placeholder="Email Id" />
+            </div>
+            <div class="input">
+                <input type="password" placeholder="Password" />
+            </div>
+        </div>
+        <div class="forgot-password">Lost Password ? <span>Click Here !</span></div>
+        <div class="submit-container">
+            <div class="submit" onclick="setAction('Sign Up')">Sign Up</div>
+            <div class="submit gray" onclick="setAction('Login')">Login</div>
+        </div>
+    </div>
+    <script>
+        function setAction(action) {
+            const textDiv = document.querySelector('.header .text');
+            const inputsDiv = document.querySelector('.inputs');
+            const forgotPasswordDiv = document.querySelector('.forgot-password');
+            const signUpButton = document.querySelectorAll('.submit')[0];
+            const loginButton = document.querySelectorAll('.submit')[1];
+
+            textDiv.textContent = action;
+
+            if (action === 'Sign Up') {
+                inputsDiv.children[0].style.display = 'block';
+                forgotPasswordDiv.style.display = 'none';
+                signUpButton.classList.remove('gray');
+                loginButton.classList.add('gray');
+            } else {
+                inputsDiv.children[0].style.display = 'none';
+                forgotPasswordDiv.style.display = 'block';
+                signUpButton.classList.add('gray');
+                loginButton.classList.remove('gray');
+            }
+        }
+    </script>
+</body>
+</html>
